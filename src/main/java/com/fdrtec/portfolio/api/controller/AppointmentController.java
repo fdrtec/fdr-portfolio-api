@@ -3,12 +3,11 @@ package com.fdrtec.portfolio.api.controller;
 import com.fdrtec.portfolio.api.document.Appointment;
 import com.fdrtec.portfolio.api.services.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-@Controller
+@RestController
 public class AppointmentController {
     @Autowired
     AppointmentService appointmentService;

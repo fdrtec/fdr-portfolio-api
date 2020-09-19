@@ -3,12 +3,11 @@ package com.fdrtec.portfolio.api.controller;
 import com.fdrtec.portfolio.api.document.Patient;
 import com.fdrtec.portfolio.api.services.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-@Controller
+@RestController
 public class PatientController {
     @Autowired
     PatientService patientService;
@@ -29,7 +28,7 @@ public class PatientController {
     }
 
     @DeleteMapping(value = "/patient")
-    public Mono<Patient> delete(@RequestBody Patient patient) {
-        return patientService.save(patient);
+    public Mono<Void> delete(@RequestBody Patient patient) {
+        return patientService.delete(patient);
     }
 }
