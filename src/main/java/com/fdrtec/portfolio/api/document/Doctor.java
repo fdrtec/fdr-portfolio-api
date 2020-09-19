@@ -8,13 +8,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @Document
-
-public class Doctor {
-
-    @Id
-    private String _id;
-    private String name;
+public class Doctor extends User {
     private String specialization;
+
+    public Doctor(String _id, String name, String email, String password, String phoneNumber, String specialization) {
+        super(_id, name, email, password, phoneNumber);
+        this.specialization = specialization;
+    }
 }

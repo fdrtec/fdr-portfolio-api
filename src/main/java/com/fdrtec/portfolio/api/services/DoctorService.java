@@ -5,8 +5,9 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 public interface DoctorService {
-    Flux<Doctor>findAll();
+    Flux<Doctor> findAll();
     Mono<Doctor> findById(String id);
     Mono<Doctor>save(Doctor doctor);
+    Mono<Void> delete(Doctor doctor);
 }
 

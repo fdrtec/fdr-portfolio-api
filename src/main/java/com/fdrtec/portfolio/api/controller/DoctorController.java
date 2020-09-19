@@ -27,4 +27,9 @@ public class DoctorController {
     public Mono<Doctor>save(@RequestBody Doctor doctor){
         return doctorService.save(doctor);
     }
+
+    @DeleteMapping(value = "/doctor")
+    public Mono<Doctor>delete(@RequestBody Doctor doctor){
+        return doctorService.save(doctor);
+    }
 }
