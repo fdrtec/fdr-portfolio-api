@@ -12,7 +12,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Document
 public class Appointment {
-    private Date appointmentDate = new Date();
+    private Date appointmentDate;
     private Patient patient;
     private Doctor doctor;
 }
