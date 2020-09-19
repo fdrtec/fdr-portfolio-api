@@ -1,7 +1,7 @@
 package com.fdrtec.portfolio.api.services;
 
-import com.fdrtec.portfolio.api.document.Doctor;
-import com.fdrtec.portfolio.api.repository.DoctorRepository;
+import com.fdrtec.portfolio.api.document.Appointment;
+import com.fdrtec.portfolio.api.repository.AppointmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
@@ -10,16 +10,16 @@ import reactor.core.publisher.Mono;
 import java.util.logging.Logger;
 
 @Service
-public class DoctorServiceImpl implements DoctorService {
-    private static Logger LOGGER = Logger.getLogger("com.fdrtec.portfolio.api.services.DoctorService");
+public class AppointmentServiceImpl implements AppointmentService {
+    private static Logger LOGGER = Logger.getLogger("com.fdrtec.portfolio.api.services.AppointmentService");
 
     @Autowired
-    DoctorRepository doctorRepository;
+    AppointmentRepository appointmentRepository;
 
     @Override
-    public Flux<Doctor> findAll() {
+    public Flux<Appointment> findAll() {
         try {
-            return doctorRepository.findAll();
+            return appointmentRepository.findAll();
         } catch (Exception e) {
             callLoggerService(e);
             return null;
@@ -27,9 +27,9 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
-    public Mono<Doctor> findById(String id) {
+    public Mono<Appointment> findById(String id) {
         try {
-            return doctorRepository.findById(id);
+            return appointmentRepository.findById(id);
         } catch (Exception e) {
             callLoggerService(e);
             return null;
@@ -37,9 +37,9 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
-    public Mono<Doctor> save(Doctor doctor) {
+    public Mono<Appointment> save(Appointment appointment) {
         try {
-            return doctorRepository.save(doctor);
+            return appointmentRepository.save(appointment);
         } catch (Exception e) {
             callLoggerService(e);
             return null;
@@ -47,14 +47,15 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
-    public Mono<Void> delete(Doctor doctor) {
+    public Mono<Void> delete(Appointment appointment) {
         try {
-            return doctorRepository.delete(doctor);
+            return appointmentRepository.delete(appointment);
         } catch (Exception e) {
             callLoggerService(e);
             return null;
         }
     }
+
 
     private void callLoggerService(Exception e) {
         LOGGER.severe("info: " + e);
